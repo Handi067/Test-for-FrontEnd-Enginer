@@ -1,73 +1,77 @@
-# React + TypeScript + Vite
+# 🚀 Admin Dashboard Project: Material & Project Management
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Dashboard ini adalah *proof of concept* (PoC) *frontend* yang dirancang untuk mengelola dan memonitor berbagai aspek operasional dan administratif. Proyek ini mengimplementasikan tata letak dua kolom yang konsisten dengan navigasi berbasis peran (RBAC).
 
-Currently, two official plugins are available:
+## 🎯 Tujuan Utama
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+1.  **Layout Konsisten**: Menggunakan tata letak dua kolom dengan **Sidebar Navigasi** (gelap) dan **Header** (kuning/emas).
+2.  **Modul Lengkap**: Implementasi kerangka untuk delapan modul inti (Project, Budget, Material Management, dll.).
+3.  **Role-Based Access Control (RBAC)**: Pembatasan akses navigasi ke modul tertentu berdasarkan peran pengguna (`admin` atau `user`).
+4.  **Tabel Interaktif (Target)**: Persiapan untuk implementasi tabel dengan fitur Sorting, Searching, dan Pagination.
 
-## React Compiler
+## 🛠️ Stack Teknologi
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+* **Frontend**: ReactJS, TypeScript
+* **Styling**: SCSS (Sass)
+* **Routing**: State-Based Routing (dikendalikan oleh *state* di `App.tsx`)
+* **Ikon**: Lucide React
 
-## Expanding the ESLint configuration
+---
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+## 📦 Detail Struktur dan File Project
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+Berikut adalah detail dari file dan folder utama dalam direktori `src/`:
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+### 1. File Root Utama (`src/`)
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+| File | Deskripsi |
+| :--- | :--- |
+| `App.tsx` | Komponen utama yang mengelola status otentikasi (`isAuthenticated`, `userRole`) dan mengimplementasikan **State-Based Routing** untuk berpindah antar halaman modul. |
+| `main.tsx` | *Entry point* aplikasi React yang me-*render* `App.tsx`. |
+| `index.scss` | File SCSS global yang mengimpor gaya dasar dan variabel. |
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+### 2. Folder `layouts/` dan `components/layout/`
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+Mengatur kerangka visual aplikasi.
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+| File | Lokasi | Deskripsi |
+| :--- | :--- | :--- |
+| `DashboardLayout.tsx` | `src/layouts/` | Komponen *wrapper* utama yang menyusun `Sidebar`, `Header`, dan konten halaman. |
+| `Sidebar.tsx` | `src/components/layout/` | Komponen navigasi yang menangani **RBAC** dan perubahan *state* halaman (`setCurrentPage`). |
+| `Header.tsx` | `src/components/layout/` | Komponen bar atas berwarna kuning/emas yang menampilkan judul halaman. |
+
+### 3. Folder `pages/` (Halaman Modul)
+
+| File | Deskripsi |
+| :--- | :--- |
+| `LoginPage.tsx` | Halaman *login* yang menangani *input* kredensial dan otentikasi simulasi. |
+| `ProjectPage.tsx` | Halaman *dashboard* utama dengan *Summary Cards* dan detail proyek. |
+| `MaterialManagementPage.tsx`| Halaman yang menampilkan ringkasan inventaris dan daftar status material. |
+| `ServiceRequestPage.tsx` | Halaman yang menampilkan status tiket dan detail permintaan layanan. |
+| `MasterDataPage.tsx` | Halaman untuk manajemen data inti (Entitas, Akun & Role). |
+| `BudgetRecapPage.tsx` | Sub-modul yang menampilkan rekapan dan alokasi anggaran. |
+| **Halaman Lain** | (`OverviewPage.tsx`, `VendorPerformancePage.tsx`, `WorkHistoryPage.tsx`, `SettingsPage.tsx`) | Halaman kerangka untuk modul-modul lainnya. |
+
+### 4. Folder `components/ui/` (Komponen Reusable)
+
+| File | Deskripsi |
+| :--- | :--- |
+| `SummaryCard.tsx` | Komponen *reusable* untuk menampilkan statistik ringkasan. |
+| `Badge.tsx` | Komponen *reusable* untuk menampilkan status berwarna (misalnya, `Active`, `Tertunda`). |
+| `ProjectCard.tsx` | Komponen kartu spesifik untuk tampilan proyek. |
+
+---
+
+## ⚙️ Instalasi dan Penggunaan
+
+1.  **Instal dependensi:** `npm install` atau `yarn install`
+2.  **Jalankan:** `npm run dev` atau `yarn dev`
+
+### 🔑 Kredensial Simulasi
+
+Gunakan kredensial ini di halaman *login* untuk menguji peran:
+
+| Peran | Email | Password | Akses |
+| :--- | :--- | :--- | :--- |
+| **Admin** | `admin@example.com` | `admin123` | Akses penuh. |
+| **User** | `user@example.com` | `user123` | Akses terbatas. |
