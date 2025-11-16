@@ -1,0 +1,54 @@
+// src/styles/MaterialTable.scss
+
+@use './variables' as v;
+
+.material-table-container {
+    overflow-x: auto;
+    border-radius: 0.5rem;
+    border: 1px solid v.$color-gray-200;
+    margin-top: 1rem;
+}
+
+.material-table {
+    width: 100%;
+    min-width: 600px;
+    border-collapse: collapse;
+
+    th, td {
+        padding: 0.75rem 1rem;
+        text-align: left;
+        border-bottom: 1px solid v.$color-gray-200;
+    }
+
+    th {
+        background-color: v.$color-gray-50;
+        font-weight: 600;
+        color: v.$color-gray-600;
+        font-size: 0.875rem;
+    }
+
+    .text-right {
+        text-align: right;
+    }
+}
+
+.status-badge {
+    padding: 0.25rem 0.6rem;
+    border-radius: 9999px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: capitalize;
+
+    &.status--in-stock {
+        background-color: rgba(v.$color-green-500, 0.1);
+        color: v.$color-green-600;
+    }
+    &.status--low-stock {
+        background-color: rgba(v.$color-yellow-600, 0.1);
+        color: v.$color-yellow-600;
+    }
+    &.status--out-of-stock {
+        background-color: rgba(v.$color-red-600, 0.1);
+        color: v.$color-red-600;
+    }
+}

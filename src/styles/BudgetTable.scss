@@ -1,0 +1,75 @@
+// src/styles/BudgetTable.scss
+
+@use './variables' as v;
+
+.budget-table-container {
+    overflow-x: auto;
+}
+
+.budget-recap-table {
+    width: 100%;
+    min-width: 800px;
+    border-collapse: collapse;
+    font-size: 0.9rem;
+
+    th, td {
+        padding: 1rem 1.25rem;
+        text-align: left;
+        border-bottom: 1px solid v.$color-gray-200;
+        vertical-align: middle;
+    }
+
+    th {
+        background-color: v.$color-gray-50;
+        color: v.$color-gray-700;
+        font-weight: 600;
+        text-transform: uppercase;
+        font-size: 0.8rem;
+    }
+
+    tbody tr:hover {
+        background-color: v.$color-gray-100;
+    }
+
+    .text-right {
+        text-align: right;
+        font-weight: 500;
+    }
+
+    .text-center {
+        text-align: center;
+    }
+
+    .text-danger {
+        color: v.$color-red-600;
+        font-weight: 600;
+    }
+}
+
+/* --- Gaya Progress Bar --- */
+.progress-bar-container {
+    width: 100%;
+    background-color: v.$color-gray-200;
+    border-radius: 9999px;
+    height: 1.5rem;
+    overflow: hidden;
+    min-width: 120px;
+}
+
+.progress-bar {
+    height: 100%;
+    background-color: v.$color-green-500;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 0.5rem;
+    color: v.$color-white;
+    font-size: 0.8rem;
+    font-weight: 600;
+    transition: width 0.3s ease-in-out;
+    white-space: nowrap;
+
+    &.over-budget {
+        background-color: v.$color-red-600;
+    }
+}

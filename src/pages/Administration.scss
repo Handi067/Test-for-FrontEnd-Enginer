@@ -1,0 +1,303 @@
+@use '../styles/variables' as v;
+@use 'sass:color'; 
+
+.admin-page {
+    padding: 0;
+    
+    .page-title {
+        font-size: 2rem;
+        font-weight: 700;
+        color: v.$color-gray-900;
+        margin-bottom: 1.5rem;
+    }
+
+    section {
+        margin-bottom: 2rem;
+        padding: 1.5rem;
+        background-color: v.$color-white;
+        border-radius: v.$border-radius-lg;
+        box-shadow: v.$shadow-lg;
+    }
+}
+
+// --- Grid Summary ---
+.summary-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
+    background: none;
+    box-shadow: none;
+    padding: 0;
+}
+
+.budget-card {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.5rem;
+    border-radius: v.$border-radius-xl;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    color: v.$color-white;
+
+    // WARNA KARTU CUSTOM DARI GAMBAR OVERVIEW
+    &.bg-dark-blue { background-color: #2c3e50; } 
+    &.bg-green-primary { background-color: #27ae60; } 
+    &.bg-gold-primary { background-color: v.$color-gold-medium; } 
+
+    &__title {
+        font-size: 0.9rem;
+        font-weight: 500;
+        opacity: 0.9;
+        margin: 0 0 0.5rem 0;
+    }
+    
+    &__value {
+        font-size: 2rem;
+        font-weight: 700;
+        margin: 0;
+    }
+    
+    &__icon {
+        opacity: 0.4;
+    }
+}
+
+// --- Kontainer Grafik (Placeholder Styling) ---
+.chart-container {
+    h2 {
+        font-size: 1.5rem;
+        font-weight: 600;
+        color: v.$color-gray-800;
+        margin-bottom: 1rem;
+    }
+}
+
+.chart-placeholder-content {
+    border: 1px solid v.$color-gray-200;
+    border-radius: v.$border-radius-lg;
+    padding: 1rem;
+    background-color: v.$color-white;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+    position: relative;
+    overflow: hidden;
+    height: 300px; 
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.chart-area {
+    flex-grow: 1;
+    display: flex;
+    position: relative;
+    padding-left: 3rem; 
+    padding-bottom: 1.5rem; 
+    height: calc(100% - 30px); 
+}
+
+.y-axis {
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 3rem;
+    display: flex;
+    flex-direction: column-reverse; 
+    justify-content: space-between;
+    font-size: 0.75rem;
+    color: v.$color-gray-500;
+    
+    span {
+        height: 10%; 
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        padding-right: 0.5rem;
+        border-bottom: 1px dashed v.$color-gray-200; 
+        &:first-child { border-bottom: none; }
+    }
+}
+
+.chart-bars {
+    flex-grow: 1;
+    display: flex;
+    align-items: flex-end;
+    gap: 0.5rem;
+    position: relative;
+    padding-left: 0.5rem;
+
+    .bar {
+        width: 1rem;
+        background-color: v.$color-indigo-500;
+        border-top-left-radius: 0.25rem;
+        border-top-right-radius: 0.25rem;
+        transition: height 0.3s ease-out;
+        box-shadow: 0 -2px 5px rgba(0,0,0,0.1);
+    }
+}
+
+.chart-line {
+    position: absolute;
+    bottom: 1.5rem; 
+    left: 3rem; 
+    width: calc(100% - 3rem);
+    height: calc(100% - 1.5rem - 1rem); 
+    pointer-events: none; 
+    
+    svg {
+        overflow: visible; 
+        polyline {
+            stroke: v.$color-red-600; 
+        }
+    }
+}
+
+
+.x-axis-labels {
+    display: flex;
+    justify-content: space-around;
+    padding-left: 3rem;
+    font-size: 0.75rem;
+    color: v.$color-gray-500;
+    margin-top: 0.5rem;
+}
+
+.chart-legends {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    padding: 1rem 0 0;
+    border-top: 1px solid v.$color-gray-100;
+    font-size: 0.8rem;
+    color: v.$color-gray-700;
+
+    .legend-item {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+    }
+    .legend-color-box {
+        width: 1rem;
+        height: 1rem;
+        border-radius: 0.25rem;
+        &.bg-blue { background-color: v.$color-indigo-500; }
+        &.bg-red { background-color: v.$color-red-600; }
+    }
+}
+
+
+// --- Controls (Budget Recap) ---
+.controls {
+    display: flex;
+    gap: 1rem;
+    padding: 0;
+    background: none;
+    box-shadow: none;
+}
+
+.button {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.75rem 1.5rem;
+    border-radius: v.$border-radius-lg;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.2s;
+
+    &--primary {
+        background-color: v.$color-gold-medium;
+        color: v.$color-gray-900;
+        border: 1px solid v.$color-gold-dark;
+        
+        &:hover {
+            background-color: color.adjust(v.$color-gold-medium, $lightness: -5%);
+        }
+    }
+    
+    &--secondary {
+        background-color: v.$color-gray-100;
+        color: v.$color-gray-700;
+        border: 1px solid v.$color-gray-300;
+        
+        &:hover {
+            background-color: v.$color-gray-200;
+        }
+    }
+}
+
+// --- Placeholder Tambahan ---
+.placeholder-box {
+    &--large {
+        min-height: 250px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+}
+
+/* --- Gaya Tabel Budget Recap --- */
+
+.recap-table-container {
+    padding: 1.5rem;
+}
+
+.table-responsive {
+    overflow-x: auto;
+}
+
+.budget-recap-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.9rem;
+
+    th, td {
+        padding: 1rem 1.25rem;
+        text-align: left;
+        border-bottom: 1px solid v.$color-gray-200;
+        vertical-align: middle;
+    }
+
+    th {
+        background-color: v.$color-gray-50;
+        color: v.$color-gray-700;
+        font-weight: 600;
+        text-transform: uppercase;
+        font-size: 0.8rem;
+    }
+
+    tbody tr:hover {
+        background-color: v.$color-gray-100;
+    }
+
+    td:nth-child(2), /* Anggaran Awal */
+    td:nth-child(3), /* Realisasi */
+    td:nth-child(5) { /* Sisa */
+        text-align: right;
+        font-weight: 500;
+    }
+}
+
+/* --- Gaya Progress Bar --- */
+.progress-bar-container {
+    width: 100%;
+    background-color: v.$color-gray-200;
+    border-radius: 9999px;
+    height: 1.5rem;
+    overflow: hidden;
+    min-width: 120px;
+}
+
+.progress-bar {
+    height: 100%;
+    background-color: v.$color-green-500;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    padding-right: 0.5rem;
+    color: v.$color-white;
+    font-size: 0.8rem;
+    font-weight: 600;
+    transition: width 0.3s ease-in-out;
+}

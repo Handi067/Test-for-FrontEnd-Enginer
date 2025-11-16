@@ -1,0 +1,75 @@
+// dashboard/SummaryCard.scss
+@import '../styles/variables'; // Sesuaikan path
+
+.summary-card {
+    /* Base Styles (Dulu: p-4 md:p-6, rounded-xl, shadow-lg, transition, duration-300, relative, border) */
+    padding: 1.5rem;
+    border-radius: 0.75rem;
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05); /* shadow-lg */
+    transition: transform 0.3s ease-in-out;
+    overflow: hidden;
+    position: relative;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    
+    &:hover {
+        transform: scale(1.02); /* transform hover:scale-[1.02] */
+    }
+
+    /* Warna (Menggunakan sintaks SCSS untuk menentukan warna berdasarkan kelas dinamis) */
+    &--indigo {
+        background-color: $color-indigo-600;
+    }
+    &--green {
+        background-color: $color-green-600;
+    }
+    &--red {
+        background-color: $color-red-600;
+    }
+    &--yellow {
+        background-color: $color-yellow-600;
+    }
+
+
+    &__icon-bg {
+        /* Ikon Latar Belakang (Dulu: absolute top-0 right-0 opacity-20 transform translate-x-1/4 -translate-y-1/4) */
+        position: absolute;
+        top: 0;
+        right: 0;
+        opacity: 0.2;
+        transform: translate(25%, -25%);
+        
+        // Memastikan ikon di dalam div ini memiliki warna putih (dulu: text-white)
+        svg {
+            color: white;
+        }
+    }
+
+    &__content {
+        /* Konten (Dulu: flex flex-col relative z-10) */
+        display: flex;
+        flex-direction: column;
+        position: relative;
+        z-index: 10;
+    }
+
+    &__title {
+        /* Judul (Dulu: text-sm font-medium text-white uppercase tracking-wider) */
+        font-size: 0.875rem;
+        font-weight: 500;
+        color: white;
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+    }
+
+    &__value {
+        /* Nilai (Dulu: text-2xl md:text-3xl font-bold mt-1 text-white) */
+        font-size: 1.875rem; // text-3xl
+        font-weight: 700;
+        margin-top: 0.25rem;
+        color: white;
+
+        @media (min-width: 768px) {
+            font-size: 2.25rem;
+        }
+    }
+}

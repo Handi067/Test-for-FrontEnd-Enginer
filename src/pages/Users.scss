@@ -1,0 +1,10 @@
+// pages/Users.scss
+@import '../styles/variables';
+
+.users-page-container {
+    padding: 1rem 0; /* Padding vertikal, padding horizontal di handle oleh Layout */
+    
+    @media (min-width: 768px) {
+        padding: 1.5rem 0;
+    }
+}

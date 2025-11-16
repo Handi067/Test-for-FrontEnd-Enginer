@@ -1,0 +1,148 @@
+// src/components/Sidebar.scss
+
+@use '../styles/_variables' as v;
+@use 'sass:color';
+
+$sidebar-width: 250px;
+$sidebar-bg: v.$color-gray-800; // Warna dasar Sidebar (Gelap)
+$sidebar-accent: v.$color-gold-medium; // Warna Aksen (Kuning)
+$sidebar-hover: color.adjust($sidebar-bg, $lightness: 5%); 
+
+.sidebar {
+    width: $sidebar-width;
+    height: 100vh;
+    background-color: $sidebar-bg;
+    color: v.$color-white;
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.2);
+
+    .admin-panel-title {
+        background-color: v.$color-gray-900;
+        padding: 1.5rem 1rem;
+        text-align: center;
+        
+        h3 {
+            margin: 0;
+            font-size: 1.2rem;
+            font-weight: 700;
+            text-transform: uppercase;
+        }
+    }
+
+    .sidebar-nav {
+        flex-grow: 1;
+        padding: 1rem 0;
+        overflow-y: auto;
+    }
+    
+    .nav-link {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        padding: 0.8rem 1.5rem;
+        color: v.$color-gray-300;
+        text-decoration: none;
+        font-size: 1rem;
+        font-weight: 500;
+        cursor: pointer;
+        transition: background-color 0.2s, color 0.2s;
+
+        svg {
+            color: v.$color-gray-500;
+            transition: color 0.2s;
+        }
+
+        &:hover {
+            background-color: $sidebar-hover;
+            color: v.$color-white;
+            svg { color: v.$color-white; }
+        }
+
+        &.active {
+            background-color: $sidebar-accent;
+            color: v.$color-gray-900;
+            font-weight: 700;
+            
+            svg { color: v.$color-gray-900; }
+        }
+        
+        &.with-submenu {
+            justify-content: space-between;
+            
+            .chevron {
+                margin-left: auto;
+                color: v.$color-gray-400;
+            }
+        }
+        
+        // Gaya untuk nav-link aktif yang juga merupakan parent sub-menu (Admin & Budget)
+        &.with-submenu.active {
+             background-color: $sidebar-accent;
+             color: v.$color-gray-900;
+             svg { color: v.$color-gray-900; }
+        }
+    }
+    
+    .submenu {
+        display: flex;
+        flex-direction: column;
+        padding-left: 1rem;
+        
+        .sub-link {
+            padding: 0.5rem 1.5rem 0.5rem 2.5rem;
+            color: v.$color-gray-400;
+            text-decoration: none;
+            font-size: 0.95rem;
+            transition: background-color 0.2s, color 0.2s;
+
+            &:hover {
+                background-color: color.adjust($sidebar-hover, $lightness: 2%);
+                color: v.$color-white;
+            }
+
+            &.active {
+                background-color: v.$color-gray-900;
+                color: $sidebar-accent;
+                font-weight: 600;
+                border-left: 3px solid $sidebar-accent;
+                padding-left: calc(2.5rem - 3px);
+            }
+        }
+    }
+    
+    .sidebar-footer {
+        padding: 1rem;
+        border-top: 1px solid v.$color-gray-700;
+        
+        .logged-in-as {
+            font-size: 0.85rem;
+            color: v.$color-gray-400;
+            margin-bottom: 0.5rem;
+        }
+
+        .logout-button {
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            padding: 0.8rem;
+            background-color: v.$color-red-600;
+            color: v.$color-white;
+            border: none;
+            border-radius: v.$border-radius-md;
+            font-weight: 700;
+            cursor: pointer;
+            transition: background-color 0.2s;
+            
+            &:hover {
+                background-color: v.$color-red-700;
+            }
+        }
+    }
+}

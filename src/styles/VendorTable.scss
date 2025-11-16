@@ -1,0 +1,57 @@
+// src/styles/VendorTable.scss
+
+@use './variables' as v;
+
+.vendor-table-container {
+    overflow-x: auto;
+    border: 1px solid v.$color-gray-200;
+    border-radius: v.$border-radius-lg;
+}
+
+.vendor-table {
+    width: 100%;
+    min-width: 700px;
+    border-collapse: collapse;
+
+    th, td {
+        padding: 0.75rem 1rem;
+        text-align: left;
+        border-bottom: 1px solid v.$color-gray-200;
+        font-size: 0.9rem;
+    }
+
+    th {
+        background-color: v.$color-gray-50;
+        color: v.$color-gray-600;
+        font-weight: 600;
+    }
+
+    .text-center {
+        text-align: center;
+    }
+
+    tbody tr:last-child td {
+        border-bottom: none;
+    }
+}
+
+.status-badge {
+    padding: 0.25rem 0.6rem;
+    border-radius: v.$border-radius-md;
+    font-weight: 500;
+    font-size: 0.8rem;
+    text-transform: capitalize;
+
+    &.status--active {
+        background-color: rgba(v.$color-green-500, 0.1);
+        color: v.$color-green-600;
+    }
+    &.status--on-hold {
+        background-color: rgba(v.$color-yellow-600, 0.1);
+        color: v.$color-yellow-600;
+    }
+    &.status--inactive {
+        background-color: rgba(v.$color-gray-500, 0.1);
+        color: v.$color-gray-600;
+    }
+}

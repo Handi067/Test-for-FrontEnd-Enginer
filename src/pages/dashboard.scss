@@ -1,0 +1,117 @@
+// src/pages/Dashboard.scss
+
+@use '../styles/variables' as v;
+
+.dashboard-page {
+    padding: 0;
+    
+    .page-title {
+        font-size: 2rem;
+        font-weight: 700;
+        color: v.$color-gray-900;
+        margin-bottom: 1.5rem;
+    }
+
+    section {
+        margin-bottom: 2rem;
+        padding: 1.5rem;
+        background-color: v.$color-white;
+        border-radius: v.$border-radius-lg;
+        box-shadow: v.$shadow-lg;
+    }
+    
+    h2 {
+        font-size: 1.5rem;
+        font-weight: 600;
+        color: v.$color-gray-800;
+        margin-bottom: 1rem;
+    }
+}
+
+// --- Gaya Kartu Statistik Admin ---
+.stat-cards-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 1.5rem;
+    background: none; 
+    box-shadow: none;
+    padding: 0;
+}
+
+.stat-card, .user-card {
+    display: flex;
+    align-items: center;
+    padding: 1.5rem;
+    border-radius: v.$border-radius-lg;
+    box-shadow: v.$shadow-lg;
+    color: v.$color-white;
+
+    &.color-indigo { background-color: v.$color-indigo-600; }
+    &.color-green { background-color: v.$color-green-600; }
+    &.color-yellow { background-color: v.$color-yellow-600; }
+    &.color-red { background-color: v.$color-red-600; }
+}
+
+.stat-card {
+    &__icon {
+        padding: 0.75rem;
+        background-color: rgba(255, 255, 255, 0.2);
+        border-radius: 50%;
+        margin-right: 1rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    &__title {
+        font-size: 0.9rem;
+        margin: 0 0 0.25rem 0;
+        opacity: 0.8;
+    }
+
+    &__value {
+        font-size: 1.75rem;
+        font-weight: 700;
+        margin: 0;
+    }
+}
+
+// --- Gaya Kartu Ringkasan User ---
+.user-summary-cards {
+    display: flex;
+    gap: 1.5rem;
+    background: none;
+    box-shadow: none;
+    padding: 0;
+
+    .user-card {
+        flex: 1;
+        flex-direction: column;
+        text-align: center;
+        
+        h3 {
+            font-size: 1.1rem;
+            margin: 0.5rem 0 0.25rem 0;
+            color: v.$color-white;
+        }
+
+        .value {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin: 0;
+        }
+    }
+}
+
+// --- Gaya Placeholder ---
+.placeholder-box {
+    padding: 2rem;
+    background-color: v.$color-gray-50;
+    border: 1px dashed v.$color-gray-300;
+    border-radius: v.$border-radius-lg;
+    text-align: center;
+    
+    p {
+        color: v.$color-gray-500;
+    }
+}

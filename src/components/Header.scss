@@ -1,0 +1,31 @@
+// src/components/Header.scss
+
+@use '../styles/_variables' as v;
+
+.dashboard-header {
+    background-color: v.$color-gold-medium; // Warna Kuning/Emas
+    padding: 1.5rem 2rem;
+    height: 60px; /* Tinggi efektif header */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    left: 250px; /* Offset selebar sidebar */
+    right: 0;
+    z-index: 999;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+
+    .header-title {
+        font-size: 1.5rem;
+        font-weight: 700;
+        color: v.$color-gray-900;
+        margin: 0;
+    }
+
+    .user-info {
+        font-size: 1rem;
+        font-weight: 600;
+        color: v.$color-gray-900;
+    }
+}

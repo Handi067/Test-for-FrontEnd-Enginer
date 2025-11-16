@@ -1,0 +1,72 @@
+
+
+@use '../styles/variables' as v;
+
+.material-table-container {
+    overflow-x: auto;
+    width: 100%;
+}
+
+.material-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.9rem;
+    
+    th, td {
+        padding: 1rem 1.5rem;
+        text-align: left;
+        border-bottom: 1px solid v.$color-gray-200;
+        vertical-align: middle;
+    }
+    
+    th {
+        background-color: v.$color-gray-50;
+        color: v.$color-gray-700;
+        font-weight: 600;
+        text-transform: uppercase;
+        font-size: 0.8rem;
+    }
+
+    td {
+        color: v.$color-gray-800;
+        
+        &.text-right {
+            text-align: right;
+            font-weight: 600;
+        }
+    }
+    
+    tbody tr:last-child td {
+        border-bottom: none;
+    }
+
+    tbody tr:hover {
+        background-color: v.$color-gray-100;
+    }
+}
+
+.status-badge {
+    padding: 0.4rem 0.75rem;
+    border-radius: 9999px;
+    font-weight: 600;
+    font-size: 0.75rem;
+    text-transform: capitalize;
+    display: inline-block;
+    min-width: 90px;
+    text-align: center;
+    
+    &.status--in-stock {
+        background-color: v.$color-green-100;
+        color: v.$color-green-600;
+    }
+
+    &.status--low-stock {
+        background-color: v.$color-yellow-100;
+        color: v.$color-yellow-600;
+    }
+    
+    &.status--out-of-stock {
+        background-color: v.$color-red-100;
+        color: v.$color-red-600;
+    }
+}

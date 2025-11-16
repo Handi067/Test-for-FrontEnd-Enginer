@@ -1,0 +1,18 @@
+// src/styles/_global_variables.scss
+
+$dark-bg: #242424;
+$dark-text: rgba(255, 255, 255, 0.87);
+$dark-button: #1a1a1a;
+$link-color: #646cff;
+$link-hover-dark: #535bf2;
+$light-text: #213547;
+$light-link-hover: #747bff;
+$light-button-bg: #f9f9f9;
+
+// Tambahkan juga variabel warna dashboard yang sudah kita gunakan sebelumnya:
+$color-indigo-600: #4f46e5;
+$color-green-600: #10b981;
+$color-yellow-600: #f59e0b;
+$color-red-600: #ef4444;
+$color-gold-medium: #fcd34d; // Untuk highlight
+// ... tambahkan semua variabel warna yang sudah kita definisikan di `_variables.scss`

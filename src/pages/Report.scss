@@ -1,0 +1,10 @@
+
+@import '../styles/variables';
+
+.reports-page-container {
+    padding: 1rem 0; 
+    
+    @media (min-width: 768px) {
+        padding: 1.5rem 0;
+    }
+}

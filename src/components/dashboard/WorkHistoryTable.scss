@@ -1,0 +1,56 @@
+// src/components/dashboard/WorkHistoryTable.scss
+
+@use '../../styles/variables' as v;
+
+.work-history-table-container {
+    overflow-x: auto;
+    border: 1px solid v.$color-gray-200;
+    border-radius: v.$border-radius-lg;
+}
+
+.work-history-table {
+    width: 100%;
+    min-width: 800px;
+    border-collapse: collapse;
+
+    th, td {
+        padding: 0.75rem 1rem;
+        text-align: left;
+        border-bottom: 1px solid v.$color-gray-200;
+        font-size: 0.9rem;
+    }
+
+    th {
+        background-color: v.$color-gray-50;
+        color: v.$color-gray-600;
+        font-weight: 600;
+    }
+
+    tbody tr:last-child td {
+        border-bottom: none;
+    }
+}
+
+.type-badge {
+    padding: 0.25rem 0.6rem;
+    border-radius: v.$border-radius-md;
+    font-weight: 500;
+    font-size: 0.8rem;
+
+    &.type--login {
+        background-color: rgba(v.$color-green-500, 0.1);
+        color: v.$color-green-600;
+    }
+    &.type--update {
+        background-color: rgba(v.$color-yellow-600, 0.1);
+        color: v.$color-yellow-600;
+    }
+    &.type--report {
+        background-color: rgba(v.$color-indigo-500, 0.1);
+        color: v.$color-indigo-600;
+    }
+    &.type--logout {
+        background-color: rgba(v.$color-red-600, 0.1);
+        color: v.$color-red-600;
+    }
+}
