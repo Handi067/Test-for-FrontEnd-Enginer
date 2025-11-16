@@ -1,15 +1,15 @@
-# 🚀 Admin Dashboard Project: Material & Project Management
+Admin Dashboard Project: Material & Project Management
 
 Dashboard ini adalah *proof of concept* (PoC) *frontend* yang dirancang untuk mengelola dan memonitor berbagai aspek operasional dan administratif. Proyek ini mengimplementasikan tata letak dua kolom yang konsisten dengan navigasi berbasis peran (RBAC).
 
-## 🎯 Tujuan Utama
+Tujuan Utama
 
 1.  **Layout Konsisten**: Menggunakan tata letak dua kolom dengan **Sidebar Navigasi** (gelap) dan **Header** (kuning/emas).
 2.  **Modul Lengkap**: Implementasi kerangka untuk delapan modul inti (Project, Budget, Material Management, dll.).
 3.  **Role-Based Access Control (RBAC)**: Pembatasan akses navigasi ke modul tertentu berdasarkan peran pengguna (`admin` atau `user`).
 4.  **Tabel Interaktif (Target)**: Persiapan untuk implementasi tabel dengan fitur Sorting, Searching, dan Pagination.
 
-## 🛠️ Stack Teknologi
+ Stack Teknologi
 
 * **Frontend**: ReactJS, TypeScript
 * **Styling**: SCSS (Sass)
@@ -18,7 +18,7 @@ Dashboard ini adalah *proof of concept* (PoC) *frontend* yang dirancang untuk me
 
 ---
 
-## 📦 Detail Struktur dan File Project
+ Detail Struktur dan File Project
 
 Berikut adalah detail dari file dan folder utama dalam direktori `src/`:
 
@@ -62,12 +62,12 @@ Mengatur kerangka visual aplikasi.
 
 ---
 
-## ⚙️ Instalasi dan Penggunaan
+ Instalasi dan Penggunaan
 
 1.  **Instal dependensi:** `npm install` atau `yarn install`
 2.  **Jalankan:** `npm run dev` atau `yarn dev`
 
-### 🔑 Kredensial Simulasi
+ Kredensial Simulasi
 
 Gunakan kredensial ini di halaman *login* untuk menguji peran:
 
